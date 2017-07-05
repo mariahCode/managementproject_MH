@@ -119,7 +119,14 @@ public class Controller {
         this.workingField = workingField;
     }
     
-    public List<Developer> getDeveloperList() {
+    public int getNightHours() {
+        return nightHours;
+    }
+    public void setNightHours(int nightHours) {
+        this.nightHours = nightHours;
+    }
+
+   public List<Developer> getDeveloperList() {
         return developerDao.findAll();
     }
 
