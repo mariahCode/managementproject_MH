@@ -1,0 +1,41 @@
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <head>
+        <title>Management Project</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        
+        <h2>Add new human resources person</h2>            
+
+        <h:form>
+            <h:outputLabel for="firstName" value="First name: " />
+            <h:inputText id="firstName" value="#{controller.firstName}" />
+            <br/>
+            <h:outputLabel for="lastName" value="Last name: " />
+            <h:inputText id="lastName" value="#{controller.lastName}" />
+            <br/>
+            <h:outputLabel for="age" value="Age: " />
+            <h:inputText id="age" value="#{controller.age}" />
+            <br/>
+            <h:outputLabel for="experience" value="Experience: " />
+            <h:inputText id="experience" value="#{controller.experience}" />
+            <br/>
+            <h:outputLabel for="workingHours" value="Working hours: " />
+            <h:inputText id="workingHours" value="#{controller.workingHours}" />
+            <br/>
+            <h:outputLabel for="workingField" value="Working field: " />
+            <h:inputText id="workingField" value="#{controller.workingField}" />
+            <br/>
+            <h:commandButton value="Submit!" action="#{controller.submitHR()}" />            
+        </h:form>
+
+        <br/>
+        <br/>
+                    
+    
+    </body>
+</xhtml>
