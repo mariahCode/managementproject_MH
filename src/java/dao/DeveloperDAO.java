@@ -17,10 +17,10 @@ public class DeveloperDAO {
         em.persist(developer);
     }
 
-    public List<Developer> findAll() {
+    public List<Developer> findAllDevelopers() {
         return em.createQuery("SELECT developer FROM Developer as developer").getResultList();
     }
-
+    
 }
 
 

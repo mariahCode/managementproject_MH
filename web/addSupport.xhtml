@@ -12,6 +12,9 @@
         <h2>Add new support person</h2>            
 
         <h:form>
+            
+            <h:panelGrid columns='1' style='margin: 0 auto;'>
+
             <h:outputLabel for="firstName" value="First name: " />
             <h:inputText id="firstName" value="#{controller.firstName}" />
             <br/>
@@ -27,7 +30,10 @@
             <h:outputLabel for="nightHours" value="Night hours: " />
             <h:inputText id="nightHours" value="#{controller.nightHours}" />
             <br/>
-            <h:commandButton value="Submit!" action="#{controller.submitSupport()}" />            
+            <h:commandButton value="Submit!" action="#{controller.submitSupport()}" />    
+            
+            </h:panelGrid>
+
         </h:form>
 
         <br/>

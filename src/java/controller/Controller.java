@@ -38,6 +38,8 @@ public class Controller {
     private int nightHours; 
 
     private List<Developer> developerList; 
+    private List<HumanResources> hrList; 
+    private List<Support> supportList; 
 
     public void submitDeveloper() {
         Developer developer = new Developer(); 
@@ -71,6 +73,16 @@ public class Controller {
         supportDao.createSupport(support);
     }
 
+    public String findAll() {
+        developerList = developerDao.findAllDevelopers();
+        hrList = hrDao.findAllHr();
+//        supportList = supportDao.findAllSupport();
+        
+        return "allEmployees";
+    }
+        
+    
+    // Getters and setters. 
     public String getFirstName() {
         return firstName;
     }
@@ -126,13 +138,24 @@ public class Controller {
         this.nightHours = nightHours;
     }
 
-   public List<Developer> getDeveloperList() {
-        return developerDao.findAll();
+    public List<Developer> getDeveloperList() {
+        return developerDao.findAllDevelopers();
     }
-
     public void setDeveloperList(List<Developer> developerList) {
         this.developerList = developerList;
     }
-    
+    public List<HumanResources> getHrList() {
+        return hrDao.findAllHr();
+    }
+    public void setHrList(List<HumanResources> hrList) {
+        this.hrList = hrList;
+    }
+    public List<Support> getSupportList() {
+        return supportDao.findAllSupport();
+    }
+
+    public void setSupportList(List<Support> supportList) {
+        this.supportList = supportList;
+    }
 
 }

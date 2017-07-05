@@ -12,6 +12,9 @@
         <h2>Add new developer</h2>            
 
         <h:form>
+            
+            <h:panelGrid columns='1' style='margin: 0 auto;'>
+
             <h:outputLabel for="firstName" value="First name: " />
             <h:inputText id="firstName" value="#{controller.firstName}" />
             <br/>
@@ -28,8 +31,11 @@
             <h:inputText id="workingHours" value="#{controller.workingHours}" />
             <br/>
             <h:commandButton value="Submit!" action="#{controller.submitDeveloper()}" />            
+        
+        </h:panelGrid>
+        
         </h:form>
-
+        
         <br/>
         <br/>
                     
