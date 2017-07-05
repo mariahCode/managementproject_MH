@@ -30,7 +30,11 @@
             <h:commandButton value="Show information for all employees" action="#{controller.findAll()}" />
             <br/>
 
-            <h:commandButton value="Remove one employee" action="removeEmployee" />
+            <h:outputLabel for="removeID" value="Remove id: " />
+            <h:inputText id="removeID" value="#{controller.removeId}" />
+            <h:commandButton value="Remove one developer" action="#{controller.removeDeveloper()}" />
+            <h:commandButton value="Remove one human resource" action="#{controller.removeHR()}" />
+            <h:commandButton value="Remove one support" action="#{controller.removeSupport()}" />
             <br/>
 
             <h:commandButton value="Show statistics" action="showStatistics" />            

@@ -18,6 +18,14 @@ public class SupportDAO {
         em.persist(support);
     }
 
+    public void removeSupport(int id) {
+        em.remove(findSupport(id));
+    }
+
+    public Support findSupport(int id) {
+        return  em.find(Support.class, id);
+    }
+
     public List<Support> findAllSupport() {
         return em.createQuery("SELECT support FROM Support as support").getResultList();
     }

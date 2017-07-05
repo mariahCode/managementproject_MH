@@ -40,6 +40,8 @@ public class Controller {
     private List<Developer> developerList; 
     private List<HumanResources> hrList; 
     private List<Support> supportList; 
+    
+    private int removeId; 
 
     public void submitDeveloper() {
         Developer developer = new Developer(); 
@@ -73,11 +75,25 @@ public class Controller {
         supportDao.createSupport(support);
     }
 
+    public String removeDeveloper() {
+        developerDao.removeDeveloper(removeId);
+        return "removeDeveloper";
+    }
+
+    public String removeHR() {
+        hrDao.removeHR(removeId);
+        return "removeHR";
+    }
+
+    public String removeSupport() {
+        supportDao.removeSupport(removeId);
+        return "removeSupport";
+    }
+
     public String findAll() {
         developerList = developerDao.findAllDevelopers();
         hrList = hrDao.findAllHr();
-//        supportList = supportDao.findAllSupport();
-        
+        supportList = supportDao.findAllSupport();        
         return "allEmployees";
     }
         
@@ -156,6 +172,13 @@ public class Controller {
 
     public void setSupportList(List<Support> supportList) {
         this.supportList = supportList;
+    }
+
+    public int getRemoveId() {
+        return removeId;
+    }
+    public void setRemoveId(int removeId) {
+        this.removeId = removeId;
     }
 
 }
