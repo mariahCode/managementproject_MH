@@ -19,6 +19,14 @@ public class Controller {
 
     @Inject
     private DeveloperDAO developerDao; 
+
+    public DeveloperDAO getDeveloperDao() {
+        return developerDao;
+    }
+
+    public void setDeveloperDao(DeveloperDAO developerDao) {
+        this.developerDao = developerDao;
+    }
     @Inject
     private HumanResourcesDAO hrDao; 
     @Inject
@@ -39,21 +47,25 @@ public class Controller {
 
     private List<Developer> developerList; 
     private List<HumanResources> hrList; 
-    private List<Support> supportList; 
+    private List<Support> supportList;
     
     private int removeId; 
 
-    public void submitDeveloper() {
+    private Developer developer; 
+    private int employeeId;     
+
+    public String submitDeveloper() {
         Developer developer = new Developer(); 
         developer.setFirstName(firstName);
         developer.setLastName(lastName);
         developer.setExperience(experience);
         developer.setWorkingHours(workingHours);
         developer.setAge(age);
-       developerDao.createDeveloper(developer);
+        developerDao.createDeveloper(developer);
+        return "added";
     }
 
-    public void submitHR() {
+    public String submitHR() {
         HumanResources hr = new HumanResources(); 
         hr.setFirstName(firstName);
         hr.setLastName(lastName);
@@ -62,9 +74,10 @@ public class Controller {
         hr.setAge(age);
         hr.setWorkingField(workingField);
         hrDao.createHR(hr);
+        return "added";
     }
 
-    public void submitSupport() {
+    public String submitSupport() {
         Support support = new Support(); 
         support.setFirstName(firstName);
         support.setLastName(lastName);
@@ -73,23 +86,45 @@ public class Controller {
         support.setAge(age);
         support.setNightHours(nightHours);
         supportDao.createSupport(support);
+        return "added";
     }
 
     public String removeDeveloper() {
         developerDao.removeDeveloper(removeId);
-        return "removeDeveloper";
+        return "removed";
     }
 
     public String removeHR() {
         hrDao.removeHR(removeId);
-        return "removeHR";
+        return "removed";
     }
 
     public String removeSupport() {
         supportDao.removeSupport(removeId);
-        return "removeSupport";
+        return "removed";
     }
 
+    public String showOneDeveloper() {
+        developer = developerDao.findDeveloper(employeeId);
+        return "showOneDeveloper"; 
+    }
+
+    public Developer getDeveloper() {
+        return developer;
+    }
+
+    public void setDeveloper(Developer developer) {
+        this.developer = developer;
+    }
+
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+            
     public String findAll() {
         developerList = developerDao.findAllDevelopers();
         hrList = hrDao.findAllHr();

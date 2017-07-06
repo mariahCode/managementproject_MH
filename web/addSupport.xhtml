@@ -2,43 +2,47 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html" 
       xmlns:f="http://java.sun.com/jsf/core">
 
-    <head>
+    <h:head>
         <title>Management Project</title>
+        <h:outputStylesheet library="css" name="myStyle.css" />
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
+    </h:head>
     <body>
-        
-        <h2>Add new support person</h2>            
-
+    
         <h:form>
-            
+
             <h:panelGrid columns='1' style='margin: 0 auto;'>
-
-            <h:outputLabel for="firstName" value="First name: " />
-            <h:inputText id="firstName" value="#{controller.firstName}" />
-            <br/>
-            <h:outputLabel for="lastName" value="Last name: " />
-            <h:inputText id="lastName" value="#{controller.lastName}" />
-            <br/>
-            <h:outputLabel for="age" value="Age: " />
-            <h:inputText id="age" value="#{controller.age}" />
-            <br/>
-            <h:outputLabel for="experience" value="Experience: " />
-            <h:inputText id="experience" value="#{controller.experience}" />
-            <br/>
-            <h:outputLabel for="nightHours" value="Night hours: " />
-            <h:inputText id="nightHours" value="#{controller.nightHours}" />
-            <br/>
-            <h:commandButton value="Submit!" action="#{controller.submitSupport()}" />    
-            
+                <h:outputText value="Add new support employee" id="rubrik" />
+                <h:panelGroup />
             </h:panelGrid>
+            
+            <h:panelGrid columns='2' style='margin: 0 auto;'>
 
+                <h:outputLabel for="firstName" value="First name: " />
+                <h:inputText id="firstName" value="#{controller.firstName}" />
+
+                <h:outputLabel for="lastName" value="Last name: " />
+                <h:inputText id="lastName" value="#{controller.lastName}" />
+
+                <h:outputLabel for="age" value="Age: " />
+                <h:inputText id="age" value="#{controller.age}" />
+
+                <h:outputLabel for="experience" value="Experience: " />
+                <h:inputText id="experience" value="#{controller.experience}" />
+
+                <h:outputLabel for="nightHours" value="Night hours: " />
+                <h:inputText id="nightHours" value="#{controller.nightHours}" />
+        
+                <h:panelGroup />
+                <h:commandButton value="Submit!" action="#{controller.submitSupport()}" />            
+        
+            </h:panelGrid>
+        
         </h:form>
 
         <br/>
         <br/>
-                    
-    
+
     </body>
 </xhtml>

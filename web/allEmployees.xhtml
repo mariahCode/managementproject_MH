@@ -3,71 +3,181 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-    <head>
+    <h:head>
         <title>Management Project</title>
+        <h:outputStylesheet library="css" name="myStyle.css" />
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
+    </h:head>
     <body>
         
+        <table><tr><td>
+
         <h2>Display all developers</h2>            
 
-        <table>
-            <ui:repeat value="#{controller.developerList}" var="developer">
-                <tr>
-                    <td>#{developer.id}</td>
-                    <td>#{developer.firstName}</td>
-                    <td>#{developer.lastName}</td>
-                    <td>#{developer.gender}</td>
-                    <td>#{developer.age}</td>
-                    <td>#{developer.experience}</td>
-                    <td>#{developer.salary}</td>
-                    <td>#{developer.percentageHourMultiplier}</td>
-                </tr>
-            </ui:repeat>            
-        </table>
+        <h:dataTable value="#{controller.developerList}" var="developer"
+        styleClass="order-table"
+        headerClass="order-table-header"
+        rowClasses="order-table-odd-row,order-table-even-row">
 
+            <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    #{developer.id}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">First name</f:facet>
+                    #{developer.firstName}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Last name</f:facet>
+                    #{developer.lastName}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{developer.gender}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{developer.age}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{developer.experience}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{developer.salary}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{developer.percentageHourMultiplier}
+            </h:column>
+
+        </h:dataTable>
+     
         <br/>
         
         <h2>Display all Human Resources</h2>            
 
-        <table>
-            <ui:repeat value="#{controller.hrList}" var="hr">
-                <tr>
-                    <td>#{hr.id}</td>
-                    <td>#{hr.firstName}</td>
-                    <td>#{hr.lastName}</td>
-                    <td>#{hr.gender}</td>
-                    <td>#{hr.age}</td>
-                    <td>#{hr.experience}</td>
-                    <td>#{hr.salary}</td>
-                    <td>#{hr.bonus}</td>
-                </tr>
-            </ui:repeat>            
-        </table>
+        <h:dataTable value="#{controller.hrList}" var="hr"
+        styleClass="order-table"
+        headerClass="order-table-header"
+        rowClasses="order-table-odd-row,order-table-even-row">
+
+            <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    #{hr.id}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">First name</f:facet>
+                    #{hr.firstName}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Last name</f:facet>
+                    #{hr.lastName}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{hr.gender}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{hr.age}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{hr.experience}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{hr.salary}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{hr.bonus}
+            </h:column>
+
+        </h:dataTable>
 
         <br/>
 
-        <h2>Display all developers</h2>            
+        <h2>Display all support employees</h2>            
 
-        <table>
-            <ui:repeat value="#{controller.supportList}" var="support">
-                <tr>
-                    <td>#{support.id}</td>
-                    <td>#{support.firstName}</td>
-                    <td>#{support.lastName}</td>
-                    <td>#{support.gender}</td>
-                    <td>#{support.age}</td>
-                    <td>#{support.experience}</td>
-                    <td>#{support.salary}</td>
-                    <td>#{support.nightHours}</td>
-                </tr>
-            </ui:repeat>            
-        </table>
+                <h:dataTable value="#{controller.supportList}" var="support"
+        styleClass="order-table"
+        headerClass="order-table-header"
+        rowClasses="order-table-odd-row,order-table-even-row">
+
+            <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    #{support.id}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">First name</f:facet>
+                    #{support.firstName}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Last name</f:facet>
+                    #{support.lastName}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{support.gender}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{support.age}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{support.experience}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{support.salary}
+            </h:column>
+
+            <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    #{support.nightHours}
+            </h:column>
+
+        </h:dataTable>
+
+        <br/>
+
+        <h:form>
+
+            <h:panelGrid columns='1' style='margin: 0 auto;'>
+                <h:commandButton value="Tillbaka till huvudmenyn" action="index" />            
+            </h:panelGrid>
+        
+        </h:form>
 
         <br/>
         <br/>
                     
+        </td></tr></table>
     
     </body>
 </xhtml>
