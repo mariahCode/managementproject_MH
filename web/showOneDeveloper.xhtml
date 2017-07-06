@@ -13,22 +13,55 @@
         
         <h2>Display one developer</h2>            
 
-        <table>
-            <tr>
-                <td>#{controller.developer.id}</td>
-                <td>#{controller.developer.firstName}</td>
-                <td>#{controller.developer.lastName}</td>
-                <td>#{controller.developer.gender}</td>
-                <td>#{controller.developer.age}</td>
-                <td>#{controller.developer.experience}</td>
-                <td>#{controller.developer.salary}</td>
-                <td>#{controller.developer.percentageHourMultiplier}</td>
-            </tr>
-        </table>
+        <h:panelGrid columns='2' style='margin: 0 auto;'>
+                <h:outputLabel for="id" value="Id: " />
+                <h:outputText id="id" value="#{controller.developer.id}" />
+        </h:panelGrid>
+        <h:panelGrid columns='2' style='margin: 0 auto;'>
+                <h:outputLabel for="firstName" value="firstName: " />
+                <h:outputText id="firstName" value="#{controller.developer.firstName}" />
+        </h:panelGrid>
+        <h:panelGrid columns='2' style='margin: 0 auto;'>
+                <h:outputLabel for="lastName" value="lastName: " />
+                <h:outputText id="lastName" value="#{controller.developer.lastName}" />
+        </h:panelGrid>
+        <h:panelGrid columns='2' style='margin: 0 auto;'>
+                <h:outputLabel for="gender" value="gender: " />
+                <h:outputText id="gender" value="#{controller.developer.gender}" />
+        </h:panelGrid>
+        <h:panelGrid columns='2' style='margin: 0 auto;'>
+                <h:outputLabel for="age" value="age: " />
+                <h:outputText id="age" value="#{controller.developer.age}" />
+        </h:panelGrid>
+        <h:panelGrid columns='2' style='margin: 0 auto;'>
+                <h:outputLabel for="experience" value="experience: " />
+                <h:outputText id="experience" value="#{controller.developer.experience}" />
+        </h:panelGrid>
+        <h:panelGrid columns='2' style='margin: 0 auto;'>
+                <h:outputLabel for="percentageHourMultiplier" value="percentageHourMultiplier: " />
+                <h:outputText id="percentageHourMultiplier" value="#{controller.developer.percentageHourMultiplier}" />
+        </h:panelGrid>
+        <h:panelGrid columns='2' style='margin: 0 auto;'>
+                <h:outputLabel for="salary" value="salary: " />
+                <h:outputText id="salary" value="#{controller.developer.salary}" />
+        </h:panelGrid>
+        <h:panelGrid columns='2' style='margin: 0 auto;'>
+                <h:outputLabel for="bonus" value="bonus: " />
+                <h:outputText id="bonus" value="#{controller.developer.bonus}" />
+        </h:panelGrid>
+
+        <br/>
+
+        <h:form>
+
+            <h:panelGrid columns='1' style='margin: 0 auto;'>
+                <h:commandButton value="Tillbaka till huvudmenyn" action="index" />            
+            </h:panelGrid>
+        
+        </h:form>
 
         <br/>
         <br/>
-                    
-    
+                        
     </body>
 </xhtml>

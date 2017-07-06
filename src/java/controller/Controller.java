@@ -51,8 +51,10 @@ public class Controller {
     
     private int removeId; 
 
-    private Developer developer; 
     private int employeeId;     
+    private Developer developer; 
+    private HumanResources humanResources; 
+    private Support support; 
 
     public String submitDeveloper() {
         Developer developer = new Developer(); 
@@ -61,6 +63,9 @@ public class Controller {
         developer.setExperience(experience);
         developer.setWorkingHours(workingHours);
         developer.setAge(age);
+        developer.setPercentageHourMultiplier(developer.calculatePercentageMultiplier(experience));
+        developer.setSalary(developer.calculateAndGetSalary());
+        developer.setBonus(developer.calculateAndGetBonus());
         developerDao.createDeveloper(developer);
         return "added";
     }
@@ -73,6 +78,9 @@ public class Controller {
         hr.setWorkingHours(workingHours);
         hr.setAge(age);
         hr.setWorkingField(workingField);
+        hr.setPercentageHourMultiplier(hr.calculatePercentageMultiplier(experience));
+        hr.setSalary(hr.calculateAndGetSalary());
+        hr.setBonus(hr.calculateAndGetBonus());
         hrDao.createHR(hr);
         return "added";
     }
@@ -85,28 +93,81 @@ public class Controller {
         support.setWorkingHours(workingHours);
         support.setAge(age);
         support.setNightHours(nightHours);
+        support.setPercentageHourMultiplier(support.calculatePercentageMultiplier(experience));
+        support.setSalary(support.calculateAndGetSalary());
+        support.setBonus(support.calculateAndGetBonus());
         supportDao.createSupport(support);
         return "added";
     }
 
+
+    // TODO: Add error handling: If id is not existing in db. 
+    public String removeEmployee() {
+        
+        if (developerDao.findDeveloper(removeId) != null){
+            developerDao.removeDeveloper(removeId);
+        }
+        if (hrDao.findHR(removeId) != null){
+            hrDao.removeHR(removeId);
+        }
+        if (supportDao.findSupport(removeId) != null){
+            supportDao.removeSupport(removeId);
+        }
+        return "removed";
+    }
     public String removeDeveloper() {
         developerDao.removeDeveloper(removeId);
         return "removed";
     }
-
     public String removeHR() {
         hrDao.removeHR(removeId);
         return "removed";
     }
-
     public String removeSupport() {
         supportDao.removeSupport(removeId);
         return "removed";
     }
 
+    public String showOneEmployee() {
+        
+        if (developerDao.findDeveloper(employeeId) != null){
+            return this.showOneDeveloper();
+        }
+        if (hrDao.findHR(employeeId) != null){
+            return this.showOneHR();
+        }
+        if (supportDao.findSupport(employeeId) != null){
+            return this.showOneSupport();
+        }
+        return "index"; 
+    }
     public String showOneDeveloper() {
         developer = developerDao.findDeveloper(employeeId);
         return "showOneDeveloper"; 
+    }
+    public String showOneHR() {
+        humanResources = hrDao.findHR(employeeId);
+        return "showOneHR"; 
+    }
+
+    public HumanResources getHumanResources() {
+        return humanResources;
+    }
+
+    public void setHumanResources(HumanResources humanResources) {
+        this.humanResources = humanResources;
+    }
+
+    public Support getSupport() {
+        return support;
+    }
+
+    public void setSupport(Support support) {
+        this.support = support;
+    }
+    public String showOneSupport() {
+        support = supportDao.findSupport(employeeId);
+        return "showOneSupport"; 
     }
 
     public Developer getDeveloper() {

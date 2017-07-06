@@ -1,0 +1,46 @@
+<xhtml xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:head>
+        <title>Management Project</title>
+        <h:outputStylesheet library="css" name="myStyle.css" />
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <body>
+        
+        <h2>Display one hr employee</h2>            
+
+        <table styleClass="order-table"
+               rowClasses="order-table-odd-row,order-table-even-row">
+            <tr>
+                <td>#{controller.humanResources.id}</td>
+                <td>#{controller.humanResources.firstName}</td>
+                <td>#{controller.humanResources.lastName}</td>
+                <td>#{controller.humanResources.gender}</td>
+                <td>#{controller.humanResources.age}</td>
+                <td>#{controller.humanResources.experience}</td>
+                <td>#{controller.humanResources.workingHours}</td>
+                <td>#{controller.humanResources.workingField}</td>
+                <td>#{controller.humanResources.salary}</td>
+                <td>#{controller.humanResources.bonus}</td>
+            </tr>
+        </table>
+
+        <br/>
+
+        <h:form>
+
+            <h:panelGrid columns='1' style='margin: 0 auto;'>
+                <h:commandButton value="Tillbaka till huvudmenyn" action="index" />            
+            </h:panelGrid>
+        
+        </h:form>
+
+        <br/>
+        <br/>
+                        
+    </body>
+</xhtml>

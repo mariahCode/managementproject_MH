@@ -71,17 +71,9 @@
                 <h:panelGroup />
                 <h:panelGroup />
 
-                <h:outputLabel for="removeId1" value="Remove id: " />
-                <h:inputText id="removeId1" value="#{controller.removeId}" />
-                <h:commandButton value="Remove one developer" action="#{controller.removeDeveloper()}" />
-                
-                <h:outputLabel for="removeId2" value="Remove id: " />
-                <h:inputText id="removeId2" value="#{controller.removeId}" />
-                <h:commandButton value="Remove one developer" action="#{controller.removeHR()}" />
-
-                <h:outputLabel for="removeId3" value="Remove id: " />
-                <h:inputText id="removeId3" value="#{controller.removeId}" />
-                <h:commandButton value="Remove one developer" action="#{controller.removeSupport()}" />
+                <h:outputLabel for="removeId" value="Remove id: " />
+                <h:inputText id="removeId" value="#{controller.removeId}" />
+                <h:commandButton value="Remove one employee" action="#{controller.removeEmployee()}" />
 
             </h:panelGrid>
 
@@ -95,7 +87,7 @@
                 
                 <h:outputLabel for="employeeId" value="Employee id: " />
                 <h:inputText id="employeeId" value="#{controller.employeeId}" />
-                <h:commandButton value="Show information for one employee" action="#{controller.showOneDeveloper()}" />
+                <h:commandButton value="Show information for one employee" action="#{controller.showOneEmployee()}" />
 
                 <h:panelGroup />
                 <h:panelGroup />

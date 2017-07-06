@@ -15,8 +15,8 @@ import javax.persistence.Table;
 @Table(name="DEVELOPER")
 public class Developer extends Employee implements Serializable {
     
-    private float percentageHourMultiplier;
     private final float percentageExp = 100.0f;
+    private float percentageHourMultiplier;
     private final int hourFee = 1250;
     private final int extraHourFree = 1500;
     private final int normalWorkingHours = 35;
@@ -31,20 +31,24 @@ public class Developer extends Employee implements Serializable {
     public float getPercentageHourMultiplier() {
         return percentageHourMultiplier;
     }
-
+    
+    public float calculatePercentageMultiplier(int experience){
+       return percentageHourMultiplier = experience / percentageExp;
+    }
+    
     public void setPercentageHourMultiplier(float percentageHourMultiplier) {
         this.percentageHourMultiplier = percentageHourMultiplier;
     }
 
     @Override
-    int calculateAndGetSalary() {
+    public int calculateAndGetSalary() {
         int expExtra = (int) ((super.getWorkingHours() * hourFee)*percentageHourMultiplier);
         int salary = super.getWorkingHours() * hourFee + expExtra;
         return salary;
     }
 
     @Override
-    int calculateAndGetBonus() {
+    public int calculateAndGetBonus() {
         if(super.getWorkingHours() > normalWorkingHours){
             super.setBonus((normalWorkingHours - super.getWorkingHours() ) * extraHourFree);
             return (normalWorkingHours-super.getWorkingHours() )*extraHourFree;

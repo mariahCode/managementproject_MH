@@ -56,15 +56,23 @@ public class Support extends Employee {
         return true;
     }
 
+    public float calculatePercentageMultiplier(int experience){
+       return percentageHourMultiplier = experience / percentageExp;
+    }
+    
+    public void setPercentageHourMultiplier(float percentageHourMultiplier) {
+        this.percentageHourMultiplier = percentageHourMultiplier;
+    }
+    
     @Override
-    int calculateAndGetSalary() {
+    public int calculateAndGetSalary() {
         int expExtra = (int) ((super.getWorkingHours() * hourFee)*percentageHourMultiplier);
         int salary = (super.getWorkingHours() - nightHours) * hourFee + expExtra +((int) (nightHours*hourFee*1.5));
         return salary;
     }
 
     @Override
-    int calculateAndGetBonus() {
+    public int calculateAndGetBonus() {
         if(super.getWorkingHours() > normalWorkingHours){
             super.setBonus((normalWorkingHours - super.getWorkingHours() )*extraHourFree);
             return (normalWorkingHours - super.getWorkingHours() )*extraHourFree;

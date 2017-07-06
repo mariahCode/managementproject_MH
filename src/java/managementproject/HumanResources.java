@@ -33,8 +33,20 @@ public class HumanResources extends Employee implements Serializable {
       percentageHourMultiplier = experience / percentageExp;
     }
 
+    public float calculatePercentageMultiplier(int experience){
+       return percentageHourMultiplier = experience / percentageExp;
+    }
+
+    public float getPercentageHourMultiplier() {
+        return percentageHourMultiplier;
+    }
+
+    public void setPercentageHourMultiplier(float percentageHourMultiplier) {
+        this.percentageHourMultiplier = percentageHourMultiplier;
+    }
+    
     @Override
-    int calculateAndGetSalary() {
+    public int calculateAndGetSalary() {
 
         switch (workingField) {
             case "Consultant":
@@ -58,7 +70,7 @@ public class HumanResources extends Employee implements Serializable {
     }
 
     @Override
-    int calculateAndGetBonus() {
+    public int calculateAndGetBonus() {
         return 0;
     }
     
